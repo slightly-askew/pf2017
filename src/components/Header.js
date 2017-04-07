@@ -4,19 +4,35 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderTitle = styled.h1`
-  font-size: 2em;
-  color: #fff;
-`
-
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  color: white;
+  color: linear-gradient(to right top, #f79700, #ff0404);
+`;
 
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 4.5em;
   background-color: #000;
-`
-export default HeaderWrapper;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+`;
+
+const Header = () => {
+  return (
+    <HeaderWrapper>
+      <HeaderTitle>Oliver Askew</HeaderTitle>
+    </HeaderWrapper>
+  )
+}
 
 
+export default Header;
 /*
 
 

@@ -1,12 +1,16 @@
+// @flow
+
 import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
+  border: none;
   font-size: 1em;
+  font-family: 'Fira Sans';
   text-align: center;
-  color: palevioletred;
+  color: white;
   padding: 1.25em;
-  background-color: green;
+  background-color: black;
 `
 
 export default Button;

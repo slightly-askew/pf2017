@@ -3,14 +3,14 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
-import { injectGlobal } from 'styled-components';
-import { normalize } from 'polished';
 
-import Button from './Button';
-import Welcome from './Welcome';
-import HeaderWrapper from './HeaderWrapper';
+import Globals from '../components/globalStyle'
 
-injectGlobal`normalize(excludeOpinionated: true)`
+import Button from '../components/Button';
+import Welcome from '../components/Welcome';
+import Header from '../components/Header';
+
+Globals();
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -26,8 +26,6 @@ storiesOf('Button', module)
   ));
 
 storiesOf('Header', module)
-  .add('dark theme', () => (
-    <HeaderWrapper>
-
-    </HeaderWrapper>
+  .add('default', () => (
+    <Header />
   ))

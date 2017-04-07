@@ -4,6 +4,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { injectGlobal } from 'styled-components';
+import { normalize } from 'polished';
+
+injectGlobal`normalize(excludeOpinionated: true)`;
+
 class App extends Component {
   render() {
     console.log(logo);

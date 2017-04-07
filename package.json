@@ -6,7 +6,8 @@
     "polished": "^1.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "styled-components": "^1.4.4"
+    "styled-components": "^1.4.4",
+    "webfontloader": "^1.6.27"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
@@ -22,7 +23,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "lint:css": "stylelint \"./components/**/*.js\"",
+    "lint:css": "stylelint \"./src/components/**/*.js\"",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   }

@@ -2,7 +2,8 @@
 .*/styled-components/src/.*
 .*/styled-components/dangerfile.js
 .*/stylelint/lib/.*
-.*/stylelint/polished/.*
+.*/polished/src/.*
+.*/polished/lib/.*
 
 [include]
 
