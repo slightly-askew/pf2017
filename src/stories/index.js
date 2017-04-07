@@ -4,11 +4,12 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 
-import Globals from '../components/globalStyle'
+import Globals from '../components/styleGlobal'
 
 import Button from '../components/Button';
 import Welcome from '../components/Welcome';
-import Header from '../components/Header';
+import Header from '../components/header/Header';
+import MenuIcon from '../components/header/MenuIcon'
 
 Globals();
 
@@ -29,3 +30,6 @@ storiesOf('Header', module)
   .add('default', () => (
     <Header />
   ))
+  .add('menu button', () =>(
+    <MenuIcon></MenuIcon>
+  ));

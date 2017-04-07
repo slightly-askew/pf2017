@@ -14,6 +14,7 @@ export default () => injectGlobal`
   html {
     text-rendering: op­ti­mizeLeg­i­bil­ity;
     font-size: 100%;
+    line-height: 1;
     @media screen and (min-width: 320px) {
         font-size: calc(1em + 0.5 * ( (100vw - 320px) / 60));
         font-size: -webkit-calc(100% + 0.5 * (100vw - 20em) / 60);
@@ -24,6 +25,8 @@ export default () => injectGlobal`
     }
   }
   body {
-    background-color: red;
+    padding: o;
+    margin: 0;
+    background: black;
   }
 `
