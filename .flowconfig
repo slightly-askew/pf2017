@@ -3,7 +3,6 @@
 .*/styled-components/dangerfile.js
 .*/stylelint/lib/.*
 .*/polished/src/.*
-.*/polished/lib/.*
 
 [include]
 
@@ -19,3 +18,7 @@ node_modules/styled-components/flow-typed/inline-style-prefixer_vx.x.x.js
 [options]
 
 unsafe.enable_getters_and_setters=true
+#styled-components lib errors
+suppress_comment=.*\\$FlowFixMe
+#polished lib errors
+suppress_comment=.*\\$FlowIgnoreNextLine
