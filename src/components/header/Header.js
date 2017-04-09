@@ -23,6 +23,7 @@ const HeaderWrapper = styled.div`
 const HeaderItems = styled.div`
   margin: 0 0 0 -4em;
   height: 3.5em;
+  max-height: 64px;
   width: auto;
   padding: 0.5em 0.5em;
   display: flex;
@@ -54,6 +55,7 @@ const Header = () => {
       <HeaderItems>
         <IconButton><MenuIcon /></IconButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
+
         <IconButton><HireIcon /></IconButton>
       </HeaderItems>
       <BottomHr />
