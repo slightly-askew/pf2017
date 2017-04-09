@@ -1,14 +1,13 @@
 //@flow
 
-import React from 'react';
 import styled, { css } from 'styled-components';
 
-const IconButton = styled.button`
+const IconButton = styled.button.attrs({
+})`
+  height: inherit;
   margin: 0;
   padding: 0;
   border: none;
-  height: 100%;
-  width: auto;
   background-color: transparent;
   cursor: pointer;
   ${(props) => {

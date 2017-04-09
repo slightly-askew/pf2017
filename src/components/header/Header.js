@@ -7,6 +7,7 @@ import HeaderTitle from './Title';
 import MenuIcon from './MenuIcon';
 import HireIcon from './HireIcon';
 import IconButton from './IconButton';
+import HeaderNav from './HeaderNav';
 
 const HeaderWrapper = styled.div`
   box-sizing: border-box;
@@ -25,7 +26,7 @@ const HeaderItems = styled.div`
   height: 3.5em;
   max-height: 64px;
   width: auto;
-  padding: 0.5em 0.5em;
+  padding: 0.5em 0.5em 0.125em 0.5em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -49,13 +50,13 @@ const BottomHr = styled.hr`
   bottom: 0em;
 `
 
-const Header = () => {
+const Header = (props: Object) => {
   return (
     <HeaderWrapper>
       <HeaderItems>
-        <IconButton><MenuIcon /></IconButton>
+        <IconButton onClick={props.toggle}><MenuIcon {...props}/></IconButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
-
+        <HeaderNav />
         <IconButton><HireIcon /></IconButton>
       </HeaderItems>
       <BottomHr />
