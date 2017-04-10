@@ -23,6 +23,7 @@ const enhanceWithToggle = compose(
   })
 );
 
+
 const IconButtonWithToggle = enhanceWithToggle((props) => {
   return (
     <IconButton storybook onClick={props.toggle}>
@@ -58,5 +59,5 @@ storiesOf('Header', module)
     <IconButtonWithToggle />
   ))
   .add('down arrow',  props => (
-      <DownArrow storybook />
+      <DownArrow storybookDA />
   ))

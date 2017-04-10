@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 const IconButton = styled.button.attrs({
 })`
   height: inherit;
+  width: inherit;
   margin: 0;
   padding: 0;
   border: none;

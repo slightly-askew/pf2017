@@ -7,7 +7,7 @@ import HeaderTitle from './Title';
 import MenuIcon from './MenuIcon';
 import HireIcon from './HireIcon';
 import IconButton from './IconButton';
-import HeaderNav from './HeaderNav';
+import NavItems from './NavItems';
 
 const HeaderWrapper = styled.div`
   box-sizing: border-box;
@@ -26,7 +26,7 @@ const HeaderItems = styled.div`
   height: 3.5em;
   max-height: 64px;
   width: auto;
-  padding: 0.5em 0.5em 0.125em 0.5em;
+  padding: 0.5em 0.5em 0.2em 0.5em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -35,6 +35,7 @@ const HeaderItems = styled.div`
   @media (min-width: 600px) {
     margin: 0;
     padding-left: 2em;
+    padding-bottom: 0.4em;
     justify-content: flex-start;
   }
 `
@@ -56,7 +57,7 @@ const Header = (props: Object) => {
       <HeaderItems>
         <IconButton onClick={props.toggle}><MenuIcon {...props}/></IconButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
-        <HeaderNav />
+        <NavItems />
         <IconButton><HireIcon /></IconButton>
       </HeaderItems>
       <BottomHr />
@@ -66,29 +67,3 @@ const Header = (props: Object) => {
 
 
 export default Header;
-/*
-
-
-/* Oli Askew:
-font-family: FiraSans-Light;
-font-size: 36px;
-color: #FFFFFF;
-line-height: 48px;
-
-
-
-<svg width="195px" height="48px" viewBox="118 24 195 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <linearGradient x1="0%" y1="152.197266%" x2="89.908288%" y2="-72.672526%" id="linearGradient-1">
-            <stop stop-color="#F79700" offset="0%"></stop>
-            <stop stop-color="#FF0404" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <text id="Oli-Askew" stroke="none" fill="url(#linearGradient-1)" fill-rule="evenodd" font-family="FiraSans-Light, Fira Sans" font-size="36" font-weight="300" line-spacing="48">
-        <tspan x="118" y="58">Oli Askew</tspan>
-    </text>
-</svg>
-
-
-
-*/

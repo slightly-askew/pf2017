@@ -8,19 +8,18 @@ const DownArrowIcon = styled.svg`
   width: 100%;
   max-height: 6em;
   max-width: 6em;
-  fill: white;
-  &:hover {
-    & .animated {
-      ${(props) => {
-        if (props.storybook) {
-          return `
-            transform: scale(0.2);
-            transition: transform 0.1s ease-in;
-          `
+  ${(props: Object) => {
+    if (props.storybookDA) {
+      return `
+        &:hover {
+        & .animated {
+          transform: scale(0.3);
+          transition: all 0.1s ease-in;
+          }
         }
-      }}
+      `
     }
-  }
+  }}
 `
 
 const TriangleOuterPath = () => <path fill="#fff" d="M28.1536034,42.1820137 C27.8373704,42.6337751 27.3230717,42.6315125 27.0084226,42.1820137 L7.15360337,13.8179863 C6.83737042,13.3662249 7.02427473,13 7.57779541,13 L47.5842305,13 C48.1347383,13 48.3230717,13.3684875 48.0084226,13.8179863 L28.1536034,42.1820137 Z"/>
@@ -31,7 +30,7 @@ const Animated = styled.g.attrs({
 })`
   transform-origin: 27.48px 36.1px;
   will-change: transform;
-  transition: transform 0.1s ease-in 0.2s;
+  transition: all 0.1s ease-in 0.2s;
 `
 
 const Triangle = () => {
