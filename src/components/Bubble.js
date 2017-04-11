@@ -67,20 +67,40 @@ const BubblePath = styled.path.attrs({
   transform: props => `rotate(${props.position === "below" ? 0 : 180})`
 })`
   fill: white;
+`//this is just the fill for the mask, stays white.
+
+const Circle = styled.circle`
+    fill: white;
+    transform: scale(0);
+    will-change: transform;
+    transition: transform 0.2s ease-out 0.1s;
+    transform-origin: ${props => props.transformOrigin};
 `
 
-const MagicCircle = styled.circle.attrs({
-  className: "bubble__circle",
-  cx: props => props.position === 'below' ? props.bubbleData.width - 36 : 36,
-  cy: props => props.position === 'below' ? 0 : props.bubbleData.height,
-  r: props => Math.max(props.bubbleData.width * 2,props.bubbleData.height * 2),
-  clipPath: "url(#bubbleMask)"
-})`
-  fill: blue;
-  transform: scale(0);
-  will-change: transform;
-  transition: transform 0.2s ease-out 0.1s;
-`
+const MagicCircle = (props) => {
+  const getCoords = (props) => {
+    const width = props.bubbleData.width;
+    const height = props.bubbleData.height;
+    const r = Math.max(width*1.2, height*1.2);
+    return props.position === 'below' ?
+    {
+      'cx': width - 36,
+      'cy': 0,
+      'r' : `${r}`,
+      'transformOrigin': `${width - 36}px 0px`
+    } :
+    {
+      'cx': 36,
+      'cy': height,
+      'r' : `${r}`,
+      'transformOrigin': `36px ${height}px`
+   };
+  }
+  const { ...coords } = getCoords(props);
+  return (
+    <Circle {...coords} className="bubble__circle" />
+  )
+}
 
 const GText = styled.g`
   font-size: 18px;
@@ -139,10 +159,11 @@ const Bubble = (props: Object) => {
   const bubbleData = props.bubbleData;
   return(
     <BubbleSvg {...props}>
-      <mask id="bubbleMask">
-        <BubblePath bubbleData={bubbleData} position={props.position}/>
+      <mask id='circleMask'>
+        <rect height="100%" width="100%" x="0" y="0" fill="#000"/>
+        <MagicCircle bubbleData={bubbleData} position={props.position} />
       </mask>
-      <MagicCircle bubbleData={bubbleData} position={props.position}/>
+      <BubblePath bubbleData={bubbleData} position={props.position} transform="scale(1)" mask="url(#circleMask)"/>
       <ListItems bubbleData={bubbleData} position={props.position} />
     </BubbleSvg>
   )
