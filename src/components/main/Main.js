@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withState, withHandlers } from 'recompose';
+import { compose, withState, withHandlers, pure } from 'recompose';
 
 import AppWrapper from './AppWrapper';
 import Mask from './Mask';
@@ -7,14 +7,15 @@ import Header from '../header/Header';
 import LeftDrawer from './LeftDrawer';
 import MainView from './MainView';
 
-const enhanceWithToggle = compose(
+const enhancer = compose(
+  pure,
   withState('menuIsActive', 'toggleMenu', false),
   withHandlers({
-    toggleMenu: (p) => () => p.toggleMenu(!p.menuIsActive)
+    toggleMenu: (p) => () => p.toggleMenu(() => !p.menuIsActive)
   })
 );
 
-const Main = (props) => {
+export default enhancer((props) => {
 
   const { menuIsActive, toggleMenu } = props;
   console.log(props);
@@ -28,6 +29,4 @@ const Main = (props) => {
       </MainView>
     </AppWrapper>
   )
-}
-
-export default enhanceWithToggle(Main);
+})

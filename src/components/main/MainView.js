@@ -1,6 +1,15 @@
-import styled, { css } from 'styled-components';
+import { PropTypes } from 'react';
+import styled from 'styled-components';
+import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
 
-export default styled.div`
+const enhancer = compose(
+  onlyUpdateForPropTypes,
+  setPropTypes({
+    menuIsActive: PropTypes.bool.isRequired
+  })
+);
+
+export default enhancer(styled.div`
   position: relative;
   background: #000;
   transform: translateX(0px);
@@ -11,12 +20,16 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
   ${props => {
     if (props.menuIsActive) {
-      return css`
+      return (
+        `
         transform: translateX(70vw);
         z-index: 10;
-      `
+        `
+      )
     }
   }}
-`
+
+`)

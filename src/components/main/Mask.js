@@ -1,7 +1,15 @@
-import styled, { css } from 'styled-components';
+import { PropTypes } from 'react';
+import styled from 'styled-components';
+import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
 
-export default styled.div.attrs({
-  onClick: props => props.onClick,
+const enhancer = compose(
+  onlyUpdateForPropTypes,
+  setPropTypes({
+    menuIsActive: PropTypes.bool.isRequired
+  })
+);
+
+export default enhancer(styled.div.attrs({
   style: props => (
     props.menuIsActive ?
     {
@@ -15,7 +23,7 @@ export default styled.div.attrs({
       transition: 'opacity 0.3s, transform 0s 0.3s',
     }
   )
-})`
+  })`
   position:absolute;
   left: 0;
   top: 0;
@@ -26,4 +34,5 @@ export default styled.div.attrs({
   background-color: #000;
   -webkit-backdrop-filter: blur(10px);
   will-change: opacity transform;
-`
+  `)
+;

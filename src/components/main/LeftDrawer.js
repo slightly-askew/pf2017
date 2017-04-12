@@ -1,5 +1,13 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
+
+const enhancer = compose(
+  onlyUpdateForPropTypes,
+  setPropTypes({
+    menuIsActive: React.PropTypes.bool.isRequired
+  })
+);
 
 const Background = styled.aside`
   background-color: #000;
@@ -21,18 +29,18 @@ const Beam = styled.div`
   transition: transform 0.2s;
   will-change: transform;
   ${props => {
-    if (props.menuIsActive) {
-      return css`
+    if (props.isActive) {
+      return `
         transform: translate(-2px);
       `
     }
   }}
 `
 
-export default function (props) {
+export default enhancer((props) => {
     return (
         <Background styleName='background'>
-            <Beam {...props}/>
+            <Beam isActive={props.menuIsActive}/>
         </Background>
     );
-}
+})
