@@ -1,6 +1,5 @@
 //@flow
-
-export default function (children: Array<number>) {
+export default function (children: Array<string>) {
   const charSize = 9.5;
 
   const listItems = children;

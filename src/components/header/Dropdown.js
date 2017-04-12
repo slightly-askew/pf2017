@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import bubbleCalculator from '../bubbleCalculator.js';
+import bubbleCalculator from '../../helpers/bubbleCalculator.js';
 import Bubble from '../Bubble.js';
 import { pure } from 'recompose';
 

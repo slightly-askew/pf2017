@@ -1,29 +1,19 @@
 //@flow
+import { cloneElement } from 'react';
 
-import React, { cloneElement } from 'react';
-
-
-const mainNav = {
-  "nav": [
-    "Projects",
-    "About",
-    {
-      "Download" : [
-        "Resume",
-        "Portfolio"
-      ]
-    },
-    "Contact"
-  ]
-};
-
-
-export default function (nav: Object, navComponent: Object = nav, ulComponents: Array<any> = ['ul'], liComponents: Array<any> = ['li']) {
+export default function (navObject: Object, liComponents: Array<mixed> = ['li'], ulComponents: Array<mixed> = ['ul'], navComponent:{}|string = 'nav') {
 
   let navLevel = 0;
 
-  const getComponent = (ComponentAry) => ComponentAry[navLevel - 1] ? ComponentAry[navLevel - 1] : ComponentAry.slice.pop();
-  const newElement = (type) => (children, key = null) => cloneElement(getComponent(type),{key:key},children);
+  const getComponent = (ComponentAry: Array<React$Component<?*,?*,?*>>):
+  (React$Component<?*,?*,?*> | React$Element<?*,?*,?*>) => (
+    ComponentAry[navLevel - 1] ?
+    ComponentAry[navLevel - 1] :
+    ComponentAry.slice.pop()
+  );
+
+
+  const newElement = (type) => (children, key = undefined) => cloneElement(getComponent(type), {key:key},children);
 
   const Ul = newElement(ulComponents);
   const Li = newElement(liComponents);
@@ -52,5 +42,5 @@ export default function (nav: Object, navComponent: Object = nav, ulComponents: 
     navLevel --;
   }
 
-  return React.cloneElement(nav, diveDeeper(v(nav)));
+  return cloneElement(navComponent, diveDeeper(v(navObject)));
 }

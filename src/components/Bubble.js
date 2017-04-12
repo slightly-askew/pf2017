@@ -1,4 +1,4 @@
-//@flow
+
 
 import React from 'react';
 import styled from 'styled-components';
@@ -29,7 +29,7 @@ const bubblePoints = [
 
 const pointsGen = (oldPointsAry, { xOffset, yOffset }, xSplit = 36, ySplit = 35) => {
 
-  const getKeyValuePairs = oldPointsAry.reduce((a: Array<number>, p: Object) => a.concat(Object.entries(p)), []);
+  const getKeyValuePairs = oldPointsAry.reduce((a: [], p: {}) => a.concat(Object.entries(p)), []);
 
   const adjustX = (x) => x > xSplit ? x + xOffset : x;
   const adjustY = (y) => y > ySplit ? y + yOffset : y;

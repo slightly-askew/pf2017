@@ -4,7 +4,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import { compose, withState, withHandlers } from 'recompose';
 
-import Globals from '../components/styleGlobal';
+import Globals from '../styleGlobal';
 
 import Button from '../components/Button';
 import Welcome from '../components/Welcome';

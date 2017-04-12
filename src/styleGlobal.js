@@ -7,7 +7,7 @@ export default () => injectGlobal`
   ${normalize()}
   ${WebFont.load({
     google: {
-      families: ['Fira Sans:300', 'Fira Mono:400', 'Noto Serif:400,400i','Montserrat:700']
+      families: ['Fira Sans:300', 'Fira Mono:400', 'Noto Serif:400','Montserrat:700']
     }
     }
   )}
@@ -28,6 +28,7 @@ export default () => injectGlobal`
     padding: o;
     margin: 0;
     background: black;
+    transition: background 0.5s
   }
   *:focus {
     outline: none;
