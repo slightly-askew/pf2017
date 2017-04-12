@@ -26,7 +26,7 @@ const HeaderItems = styled.div`
   height: 3.5em;
   max-height: 64px;
   width: auto;
-  padding: 0.5em 0.5em 0.2em 0.5em;
+  padding: 0.5em 0 0.2em 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -55,7 +55,7 @@ const Header = (props: Object) => {
   return (
     <HeaderWrapper>
       <HeaderItems>
-        <IconButton onClick={props.toggle}><MenuIcon {...props}/></IconButton>
+        <IconButton onClick={props.toggleMenu}><MenuIcon {...props}/></IconButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
         <NavItems />
         <IconButton><HireIcon /></IconButton>

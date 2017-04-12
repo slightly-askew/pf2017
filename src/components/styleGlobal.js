@@ -29,4 +29,7 @@ export default () => injectGlobal`
     margin: 0;
     background: black;
   }
+  *:focus {
+    outline: none;
+  }
 `

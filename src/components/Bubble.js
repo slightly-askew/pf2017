@@ -51,14 +51,22 @@ const pointsGen = (oldPointsAry, { xOffset, yOffset }, xSplit = 36, ySplit = 35)
 };
 
 const BubbleSvg = styled.svg.attrs({
-  className: "bubble",
+  className: "bubble__svg",
   viewBox: props => {
     const { width, height } = props.bubbleData;
     return `0 0 ${width} ${height}`;
   },
 })`
+  will-change: transform visibility opacity;
+  transition: all 0s 0.2s;
   fill: white;
+  display: block;
   height: calc(${props => props.bubbleData.height} * 0.0583em);
+  transform: scale(0);
+  opacity: 0;
+  position: absolute;
+  right: -1.6em;
+  padding: 2em 0.5em 0.5em 0.5em;
 `
 
 const BubblePath = styled.path.attrs({
@@ -67,7 +75,7 @@ const BubblePath = styled.path.attrs({
   transform: props => `rotate(${props.position === "below" ? 0 : 180})`
 })`
   fill: white;
-`//this is just the fill for the mask, stays white.
+`
 
 const Circle = styled.circle`
     fill: white;

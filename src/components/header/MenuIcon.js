@@ -3,17 +3,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MenuSvg = styled.svg.attrs({
-  onClick: props => (props.storybook ? props.toggleActive : '')
-})`
+const MenuSvg = styled.svg`
   height: 100%;
   max-height: 6em;
   max-width: calc(6em / 7 * 16);
   stroke: #fff;
   stroke-width: 0.09375em;
+  &:focus {
+    border: none;
+  }
   ${
     props => {
-      if (!props.isActive) {
+      if (!props.menuIsActive) {
         return`
           &:hover {
             & .middle {
@@ -26,6 +27,7 @@ const MenuSvg = styled.svg.attrs({
         `
       } else {
         return`
+          z-index: 30;
           &:hover {
             & .runners {
               stroke-dashoffset: -88;
@@ -46,7 +48,7 @@ const Runners = styled.g.attrs({
   stroke-dashoffset: 0;
   ${
     props => {
-      if (props.isActive) {
+      if (props.menuIsActive) {
         return`
           stroke-dashoffset: -77;
         `
@@ -64,7 +66,7 @@ const MiddleBar = styled.g.attrs({
   stroke-dashoffset: 0;
   ${
     props => {
-      if (props.isActive) {
+      if (props.menuIsActive) {
         return`
           stroke-dashoffset: 77;
         `
@@ -74,7 +76,7 @@ const MiddleBar = styled.g.attrs({
 `;
 
 
-const MenuIcon = (props: Object) => {
+export default function (props: Object) {
   return (
       <MenuSvg viewBox="0 0 128 56" {...props}>
         <g className='paths' fill="none" fillRule="evenodd" transform="translate(0 1)">
@@ -87,6 +89,3 @@ const MenuIcon = (props: Object) => {
       </MenuSvg>
   )
 };
-
-
-export default MenuIcon;

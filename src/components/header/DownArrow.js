@@ -28,7 +28,8 @@ const TriangleInnerPath = () => <path fill="#000" d="M28.1479659,35.1713765 C27.
 const Animated = styled.g.attrs({
   className: "animated"
 })`
-  transform-origin: 27.48px 36.1px;
+  transform: scale(1);
+  transform-origin: 27.48px 36px;
   will-change: transform;
   transition: all 0.1s ease-in 0.2s;
 `
@@ -44,12 +45,18 @@ const Triangle = () => {
   )
 }
 
+const RectangleFill = styled.rect`
+  fill: #aaa;
+  transition: fill 0.2s 0.2s;
+  will-change: fill;
+`
+
 const DownArrowPath = (props: Object) => {
   return (
     <DownArrowIcon viewBox="0 0 56 56" {...props}>
       <Triangle />
 
-        <rect height="100%" width="100%" mask="url(#triangleMask)"/>
+        <RectangleFill className="down-arrow__fill" height="100%" width="100%" mask="url(#triangleMask)"/>
 
     </DownArrowIcon>
   )

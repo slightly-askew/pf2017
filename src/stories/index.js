@@ -11,6 +11,7 @@ import Welcome from '../components/Welcome';
 import Header from '../components/header/Header';
 import MenuIcon from '../components/header/MenuIcon';
 import IconButton from '../components/header/IconButton';
+import Main from '../components/main/Main';
 
 import DownArrow from '../components/header/DownArrow';
 
@@ -60,4 +61,9 @@ storiesOf('Header', module)
   ))
   .add('down arrow',  props => (
       <DownArrow storybookDA />
+  ))
+
+storiesOf('Sitewide', module)
+  .add('main layout', () => (
+    <Main />
   ))

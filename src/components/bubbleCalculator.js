@@ -1,15 +1,9 @@
 //@flow
 
-export default function (props: Object) {
+export default function (children: Array<number>) {
   const charSize = 9.5;
 
-  const getListItems = list => {
-    return (
-      list.map(c => c.props.children)
-    )
-  };
-
-  const listItems = getListItems(props);
+  const listItems = children;
   const listLength = listItems.length;
 
   const getCharBox = (listItems) => {

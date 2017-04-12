@@ -15,8 +15,8 @@ const Nav = styled.nav`
     z-index: 10;
   }
 `
-
-const TopUL = styled.ul`
+//move to header
+const HeaderNavUL = styled.ul`
   padding: 0 0 0 2em;
   display: flex;
   justify-content: flex-start;
@@ -25,7 +25,7 @@ const TopUL = styled.ul`
   margin: 0;
 `
 
-const LiLi = styled.li`
+const ListItem = styled.li`
   position: relative;
   color: #bbb;
   font-family: 'Fira Mono', monospace;
@@ -46,30 +46,18 @@ const LiLi = styled.li`
       transform: scaleX(1);
       background-color: #fff;
     }
-    & .hasDropdown {
-      cursor: context-menu;
-    }
-    & .hasDropdown .animated {
-      transform: scale(0.2);
-      transition: transform 0.1s ease-in;
-      fill: #fff;
-    }
-    & .bubble__circle {
-      transform: scale(1);
-    }
   }
 `
 
 const LiSpan = styled.span.attrs({
   className: "singleton"
-})`
-  position: relative;
+  })`
   &:before {
     content: "";
     position: absolute;
     width: 100%;
     height: 0.111em;
-    bottom: -0.222em;
+    bottom: 0.189em;
     left: 0;
     background-color: #bbb;
     visibility: hidden;
@@ -79,7 +67,7 @@ const LiSpan = styled.span.attrs({
     transition: all 0.2s ease-out;
   }
 `
-
+//move to dropdown
 const DDDownArrow = styled(DownArrow)`
   height: 1em;
   width: 1em;
@@ -88,56 +76,77 @@ const DDDownArrow = styled(DownArrow)`
   fill: #eee;
 `
 
-const Li = (props: Object) => {
-  const decorateDropDownLabel = props => {
-    return (
-    props.children.map((child, i) => {
-      return (
-        typeof child.props.children === 'string' ?
-        <DropdownSpan key={i}>{child}<DDDownArrow /></DropdownSpan> : <span key={i}>{child}</span>
-      )
-    }))
-  };
-  const getSpanType = props => {
-    return(
-      typeof props.children !== 'object' ?
-      <LiSpan>{props.children}</LiSpan> :
-      decorateDropDownLabel(props)
-    )
+//move to dropdown
+const DDDiv = styled.div`
+  &:hover {
+    & .down-arrow__fill {
+      fill: white;
+      transition: fill 0.2s;
+    }
+    & .bubble__svg {
+      transition: all 0s 0s;
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+    }
+    & .bubble__circle {
+      transform: scale(1);
+    }
+    & .hasDropdown {
+      cursor: context-menu;
+    }
+    & .hasDropdown .animated {
+      transform: scale(0.2);
+      transition: transform 0.1s ease-in;
+    }
   }
-  return (
-    <LiLi>{getSpanType(props)}</LiLi>
-  )
-}
-
-const DropdownSpan = styled.span.attrs({
-  className: "hasDropdown"
-})`
-
 `
 
+const HeaderNavLi = (props: Object) => {
+  //move this to dropdown
+  const createDropdown = (children: Array<2>) => {
+    return (
+      <DDDiv>
+        <span className="hasDropdown" >{children[0]}<DDDownArrow /></span>
+        <Dropdown>{children[1].props.children}</Dropdown>
+      </DDDiv>
+    )
+  };
+
+  const findDropdowns = child => {
+    return(
+      typeof child === 'string' ?
+      <LiSpan>{child}</LiSpan> :
+      createDropdown(child)
+    )
+  }
+
+  return (
+    <ListItem>{findDropdowns(props.children)}</ListItem>
+  )
+}
 
 const NavItems = () => {
   return (
     <Nav>
-      <TopUL>
-        <Li>
+      <HeaderNavUL>
+        <HeaderNavLi>
           Projects
-        </Li>
-        <Li>
+        </HeaderNavLi>
+        <HeaderNavLi>
           About
-        </Li>
-        <Li>
-          <DropdownSpan>Download</DropdownSpan>
-          <Dropdown>
+        </HeaderNavLi>
+        <HeaderNavLi>
+          Download
+          <ul>
             <li>Resume</li>
             <li>Portfolio</li>
-          </Dropdown>
-        </Li>
-        <Li>
+          </ul>
+        </HeaderNavLi>
+        <HeaderNavLi>
           Contact
-        </Li>
-      </TopUL>
+        </HeaderNavLi>
+      </HeaderNavUL>
     </Nav>
   )
 }

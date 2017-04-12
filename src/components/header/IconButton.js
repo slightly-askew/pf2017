@@ -18,9 +18,17 @@ const IconButton = styled.button.attrs({
       `
     }
   }}
-  @media (min-width: 600px) {
-    display: none;
+  ${props => (
+    !props.menuIsActive ?
+      css`
+        @media (min-width: 600px) {
+          display: none;
+        }
+      `
+    :``
+    )
   }
+
 `
 
 export default IconButton;
