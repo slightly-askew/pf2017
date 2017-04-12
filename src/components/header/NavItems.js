@@ -1,11 +1,20 @@
 //@flow
-
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { baseAdjust } from '../styleUtils'
+import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
 
 import Dropdown from './Dropdown';
 import DownArrow from './DownArrow';
+
+import { baseAdjust } from '../styleUtils'
+
+const enhancer = compose(
+  onlyUpdateForPropTypes,
+  setPropTypes({
+    menuIsActive: PropTypes.bool.isRequired
+  })
+);
+
 
 const Nav = styled.nav`
   display: none;
@@ -69,11 +78,13 @@ const LiSpan = styled.span.attrs({
 `
 //move to dropdown
 const DDDownArrow = styled(DownArrow)`
-  height: 1em;
-  width: 1em;
-  ${baseAdjust(3)}
-  padding: 0 0.5em;
-  fill: #eee;
+  & .down-arrow {
+    height: 1em;
+    width: 1em;
+    ${baseAdjust(3)}
+    padding: 0 0.5em;
+    fill: blue;
+  }
 `
 
 //move to dropdown

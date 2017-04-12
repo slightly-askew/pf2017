@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
 
 const enhancer = compose(
   onlyUpdateForPropTypes,
   setPropTypes({
-    menuIsActive: React.PropTypes.bool.isRequired
+    menuIsActive: PropTypes.bool.isRequired
   })
 );
 

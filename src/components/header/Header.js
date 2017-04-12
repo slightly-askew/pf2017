@@ -51,14 +51,24 @@ const BottomHr = styled.hr`
   bottom: 0em;
 `
 
+const HeaderButton = styled(IconButton)`
+    @media (min-width: 600px) {
+      display: none;
+    }
+  `
+
 const Header = (props: Object) => {
   return (
     <HeaderWrapper>
       <HeaderItems>
-        <IconButton onClick={props.toggleMenu}><MenuIcon {...props}/></IconButton>
+        <HeaderButton onClick={props.toggleMenu} isActive={props.menuIsActive}>
+          <MenuIcon isActive={props.menuIsActive}/>
+        </HeaderButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
         <NavItems />
-        <IconButton><HireIcon /></IconButton>
+        <HeaderButton>
+          <HireIcon />
+        </HeaderButton>
       </HeaderItems>
       <BottomHr />
     </HeaderWrapper>

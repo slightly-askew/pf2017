@@ -1,9 +1,9 @@
-
 import styled from 'styled-components';
+import { pure } from 'recompose';
 
 import { baseAdjust } from '../styleUtils'
 
-const Heading = styled.h1`
+export default pure(styled.h1`
   text-align: center;
   font-size: 1.5em;
   line-height: 1;
@@ -14,8 +14,4 @@ const Heading = styled.h1`
   cursor: pointer;
   ${baseAdjust(2)}
   flex: 1 1 content-fit;
-
-`;
-
-
-export default Heading;
+`);
