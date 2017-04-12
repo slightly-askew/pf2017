@@ -60,7 +60,7 @@ storiesOf('Header', module)
     <IconButtonWithToggle />
   ))
   .add('down arrow',  props => (
-      <DownArrow storybookDA />
+      <DownArrow/>
   ))
 
 storiesOf('Sitewide', module)

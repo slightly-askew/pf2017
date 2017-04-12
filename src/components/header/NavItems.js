@@ -15,7 +15,7 @@ const enhancer = compose(
   })
 );
 
-
+//moved
 const Nav = styled.nav`
   display: none;
   @media (min-width: 600px) {
@@ -33,7 +33,7 @@ const HeaderNavUL = styled.ul`
   list-style: none;
   margin: 0;
 `
-
+//moved
 const ListItem = styled.li`
   position: relative;
   color: #bbb;
@@ -57,7 +57,7 @@ const ListItem = styled.li`
     }
   }
 `
-
+//moved
 const LiSpan = styled.span.attrs({
   className: "singleton"
   })`
@@ -76,18 +76,9 @@ const LiSpan = styled.span.attrs({
     transition: all 0.2s ease-out;
   }
 `
-//move to dropdown
-const DDDownArrow = styled(DownArrow)`
-  & .down-arrow {
-    height: 1em;
-    width: 1em;
-    ${baseAdjust(3)}
-    padding: 0 0.5em;
-    fill: blue;
-  }
-`
 
-//move to dropdown
+
+//moved to dropdown
 const DDDiv = styled.div`
   &:hover {
     & .down-arrow__fill {
@@ -115,14 +106,8 @@ const DDDiv = styled.div`
 
 const HeaderNavLi = (props: Object) => {
   //move this to dropdown
-  const createDropdown = (children: Array<2>) => {
-    return (
-      <DDDiv>
-        <span className="hasDropdown" >{children[0]}<DDDownArrow /></span>
-        <Dropdown>{children[1].props.children}</Dropdown>
-      </DDDiv>
-    )
-  };
+  console.log(props);
+  const createDropdown = (props) => <Dropdown{...props}>{props.children}</Dropdown>
 
   const findDropdowns = child => {
     return(
@@ -136,6 +121,8 @@ const HeaderNavLi = (props: Object) => {
     <ListItem>{findDropdowns(props.children)}</ListItem>
   )
 }
+
+
 
 const NavItems = () => {
   return (

@@ -7,6 +7,8 @@ import Header from '../header/Header';
 import LeftDrawer from './LeftDrawer';
 import MainView from './MainView';
 
+import mainNav from '../'
+
 const enhancer = compose(
   pure,
   withState('menuIsActive', 'toggleMenu', false),
@@ -18,7 +20,6 @@ const enhancer = compose(
 export default enhancer((props) => {
 
   const { menuIsActive, toggleMenu } = props;
-  console.log(props);
   return (
     <AppWrapper>
       <MainView menuIsActive={menuIsActive}>

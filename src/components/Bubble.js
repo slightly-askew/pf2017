@@ -148,8 +148,8 @@ const ListItems = (props) => {
         <GText>
           {props.children.map((child, i) => {
             return (
-              <GItem>
-                <text key={i+1} x="36" y={yPos(i)}>{child}</text>
+              <GItem key={i+1}>
+                <text x="36" y={yPos(i)}>{child}</text>
                 <Underline x="36" y={yPos(i)+4.5} width={child.length * 10}></Underline>
               </GItem>
             )})}
