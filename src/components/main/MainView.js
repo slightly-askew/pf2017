@@ -20,16 +20,14 @@ export default enhancer(styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   ${props => {
     if (props.menuIsActive) {
       return (
         `
-        transform: translateX(70vw);
-        z-index: 10;
+          transform: translateX(70vw);
+          z-index: 10;
         `
       )
     }
   }}
-
 `)

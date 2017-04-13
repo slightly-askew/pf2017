@@ -1,13 +1,25 @@
 // @flow
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
+import { compose, onlyUpdateForPropTypes, setPropTypes } from 'recompose';
+
+const enhancers = compose(
+  onlyUpdateForPropTypes,
+  setPropTypes({
+    navItems: PropTypes.array.isRequired,
+    toggleMenu: PropTypes.func.isRequired,
+    menuIsActive: PropTypes.bool.isRequired,
+  })
+)
 
 import HeaderTitle from './Title';
 import MenuIcon from './MenuIcon';
 import HireIcon from './HireIcon';
 import IconButton from './IconButton';
-import NavItems from './NavItems';
+import HeaderNav from './HeaderNav';
+
+
 
 const HeaderWrapper = styled.div`
   box-sizing: border-box;
@@ -57,7 +69,7 @@ const HeaderButton = styled(IconButton)`
     }
   `
 
-const Header = (props: Object) => {
+export default enhancers((props: Object) => {
   return (
     <HeaderWrapper>
       <HeaderItems>
@@ -65,7 +77,7 @@ const Header = (props: Object) => {
           <MenuIcon isActive={props.menuIsActive}/>
         </HeaderButton>
         <HeaderTitle>Oliver Askew</HeaderTitle>
-        <NavItems />
+        <HeaderNav navItems={props.navItems}/>
         <HeaderButton>
           <HireIcon />
         </HeaderButton>
@@ -73,7 +85,4 @@ const Header = (props: Object) => {
       <BottomHr />
     </HeaderWrapper>
   )
-}
-
-
-export default Header;
+})

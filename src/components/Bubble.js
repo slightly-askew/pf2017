@@ -163,7 +163,6 @@ const ListItems = (props) => {
 }
 
 const Bubble = (props: Object) => {
-  console.log(props.bubbleData);
   const bubbleData = props.bubbleData;
   return(
     <BubbleSvg {...props}>

@@ -1,14 +1,12 @@
 //@flow
-export default {
-  "nav": [
+export default  [
     "Projects",
     "About",
     {
       "Download" : [
-        "Resume", 
+        "Resume",
         "Portfolio"
       ]
     },
     "Contact"
-  ]
-};
+  ];

@@ -13,13 +13,19 @@ const enhancer = compose(
   pure,
   withState('menuIsActive', 'toggleMenu', false),
   withHandlers({
-    toggleMenu: (p) => () => p.toggleMenu(() => !p.menuIsActive)
+    toggleMenu: (p) => () => p.toggleMenu(() => !p.menuIsActive),
+    closeMenu: (p) => () => p.toggleMenu(() => false)
   })
 );
 
 export default enhancer((props) => {
-
-  const { menuIsActive, toggleMenu } = props;
+  const { menuIsActive, toggleMenu, closeMenu } = props;
+  let mq = window.matchMedia(`(min-width: 600px)`);
+  mq.addListener(function(changed) {
+    if(props.menuIsActive && changed.matches) {
+        return closeMenu();
+    }
+  });
   return (
     <MainView menuIsActive={menuIsActive}>
       <Mask menuIsActive={menuIsActive} onClick={toggleMenu}/>
