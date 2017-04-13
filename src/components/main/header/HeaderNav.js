@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import {baseAdjust} from '../styleUtils';
-import bubbleCalculator from '../hoc/bubbleCalculator';
-import Bubble from '../Bubble';
+import {baseAdjust} from '../../styleUtils';
+import bubbleCalculator from '../../hoc/bubbleCalculator';
+import Bubble from '../../Bubble';
 import { compose, onlyUpdateForPropTypes, setPropTypes } from 'recompose';
 
-import navBuilder from '../hoc/navBuilder';
-import DownArrow from '../svg/DownArrow';
+import navBuilder from '../../hoc/navBuilder';
+import DownArrow from '../../svg/DownArrow';
 
 const enhancers =compose(
   onlyUpdateForPropTypes,
@@ -57,7 +57,10 @@ const ListItem = styled.li`
 
 const UlListItem = styled(ListItem)`
   &:hover {
-    cursor: context-menu;
+    cursor: s-resize;
+    & .bubble__svg {
+      cursor: context-menu;
+    }
   }
 `
 
@@ -96,9 +99,6 @@ const DropdownWrapper = styled.span`
     }
     & .bubble__circle {
       transform: scale(1);
-    }
-    & .hasDropdown {
-      cursor: context-menu;
     }
     & .hasDropdown .animated {
       transform: scale(0.2);

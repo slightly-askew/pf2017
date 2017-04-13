@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pure } from 'recompose';
 
-import { baseAdjust } from '../styleUtils'
+import { baseAdjust } from '../../styleUtils'
 
 export default pure(styled.h1`
   text-align: center;

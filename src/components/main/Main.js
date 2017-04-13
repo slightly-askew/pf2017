@@ -2,8 +2,8 @@ import React from 'react';
 import { compose, withState, withHandlers, pure } from 'recompose';
 
 import Mask from './Mask';
-import Header from '../header/Header';
-import LeftDrawer from './LeftDrawer';
+import Header from './header/Header';
+import LeftDrawer from './leftDrawer/LeftDrawer';
 import MainView from './MainView';
 
 import mainNav from '../../data/mainNav';

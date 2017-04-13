@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { pure } from 'recompose';
 
-import { baseAdjust } from '../styleUtils';
+import { baseAdjust } from '../../styleUtils';
 
 const DownArrowSvg = styled.svg`
     height: 1em;
