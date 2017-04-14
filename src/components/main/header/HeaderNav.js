@@ -108,21 +108,19 @@ const DropdownWrapper = styled.span`
 
 
 const Li = (props) => {
-  const {value} = props;
+  const {li} = props;
   return(
-    <ListItem><LiSpan>{value}</LiSpan></ListItem>
+    <ListItem><LiSpan>{li}</LiSpan></ListItem>
   )
 }
 
 const Ul = (props) => {
-
-  const {value} = props;
-  const ulVals = Object.values(value).reduce((a,v) => a.concat(v), []);
-  const bubbleData = bubbleCalculator(ulVals);
+  const {label, childlis} = props;
+  const bubbleData = bubbleCalculator(childlis);
   return(
       <DropdownWrapper>
         <UlListItem>
-          <span className='hasDropdown'>{Object.keys(value)}<DownArrow /></span>
+          <span className='hasDropdown'>{label}<DownArrow /></span>
           <Bubble {...bubbleData} position="below" />
         </UlListItem>
       </DropdownWrapper>
@@ -130,7 +128,7 @@ const Ul = (props) => {
 }
 
 export default enhancers((props) => {
-  const Charles = navBuilder(HeaderNavUL, Ul, Li);
+  const Charles = navBuilder(HeaderNavUL, Li, Ul);
   return (
     <Nav>
       <Charles navItems={props.navItems}/>
