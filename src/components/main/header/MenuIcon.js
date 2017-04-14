@@ -38,6 +38,7 @@ const MenuSvg = styled.svg`
             z-index: 30;
             &:hover {
               & .runners {
+                transition: stroke-dashoffset 0.1s ease-out;
                 stroke-dashoffset: -88;
               }
             }

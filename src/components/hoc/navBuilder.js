@@ -1,13 +1,15 @@
 
-import React from 'react';
+import React, { cloneElement, Component } from 'react';
 
-export default function (NavComponent, LiComponent, UlComponent) {
-  return class extends NavComponent {
+export default function (ParentUl, LiComponent, UlComponent) {
+  const Parent = ParentUl ? ParentUl :
+  class extends Component { render() { return <ul></ul> } };
+  return class extends Parent {
     getLi(value, i, childUl) {
       if (LiComponent) {
         return <LiComponent key={i} li={value} childUl={childUl} />
       }
-      return <li key={i}>[{value},{childUl ? childUl : null}]</li>;
+      return <li key={i}>{value}{childUl ? childUl : null}</li>;
     }
 
     getUl(data, i) {
@@ -34,10 +36,10 @@ export default function (NavComponent, LiComponent, UlComponent) {
     }
     render() {
       let newProps = {};
-      const navWrap = super.render()
+      const navWrap = super.render();
       const props = Object.assign({}, navWrap.props, newProps);
       return (
-        React.cloneElement(navWrap, props, this.mapItems(this.props.navItems))
+        cloneElement(navWrap, props, this.mapItems(this.props.navItems))
       )
     }
   }

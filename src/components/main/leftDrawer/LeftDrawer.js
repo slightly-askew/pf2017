@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
-import styled from 'styled-components';
 import { onlyUpdateForPropTypes, setPropTypes, compose } from 'recompose';
 
 import Beam from './Beam';
 import Background from './Background';
 import DrawerNav from './DrawerNav';
+import Divider from './Divider';
+import BottomNavWrapper from './BottomNavWrapper';
 
 const enhancer = compose(
   onlyUpdateForPropTypes,
@@ -14,11 +15,15 @@ const enhancer = compose(
   })
 );
 
+
 export default enhancer((props) => {
     return (
         <Background styleName='background'>
-            <Beam isActive={props.menuIsActive}/>
-            <DrawerNav navItems={props.navItems}/>
+              <Beam isActive={props.menuIsActive}/>
+              <DrawerNav navItems={props.navItems}/>
+              <BottomNavWrapper>
+                <Divider />
+              </BottomNavWrapper>
         </Background>
     );
 })

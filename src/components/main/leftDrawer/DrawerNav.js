@@ -18,6 +18,6 @@ const enhancer = compose(
 const Li = (props) => <NavLi>{props.li}{props.childUl}</NavLi>
 
 export default enhancer((props) => {
-  const Gertrude = navBuilder(NavWrapper, Li);
+  const Gertrude = navBuilder();
   return <nav><Gertrude navItems={props.navItems} /></nav>
 })
