@@ -38,7 +38,6 @@ const MenuSvg = styled.svg`
             z-index: 30;
             &:hover {
               & .runners {
-                transition: stroke-dashoffset 0.1s ease-out;
                 stroke-dashoffset: -88;
               }
             }
@@ -53,7 +52,7 @@ const Runners = styled.g.attrs({
   })`
     stroke-dasharray: 27,101;
     will-change: stroke-dashoffset transform;
-    transition: stroke-dashoffset 0.4s ease-out, transform 0.1s ease-in-out;
+    transition: stroke-dashoffset 0.5s ease-out, transform 0.1s ease-in-out;
     stroke-dashoffset: 0;
     ${
       props => {

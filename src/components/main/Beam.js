@@ -12,17 +12,11 @@ const enhancers = compose(
 
 export default enhancers(styled.div`
   position: absolute;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 2px;
   background-color: #fff;
-  right: 2px;
-  transition: transform 0.2s;
-  will-change: transform;
-  ${props => {
-    if (props.isActive) {
-      return `
-        transform: translate(-2px);
-      `
-    }
-  }}
+  top: 0;
+  left: -2px;
+  z-index: 20;
 `)

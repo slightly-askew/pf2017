@@ -1,7 +1,14 @@
-// @flow
-import styled from './styled-components';
-import { pure } from './recompose';
+//@flow
+import React from 'react';
+import { onlyUpdateForKeys } from 'recompose';
+import navBuilder from '../../hoc/navBuilder';
 
-export default pure(styled.nav`
+import Ul  from './LeftDrawerBottomNavUl';
+import ItemsWrapper from './ItemsWrapper';
 
-`)
+const enhancer = onlyUpdateForKeys(['contactNavItems']);
+
+export default enhancer((props: {'navItems': Array<mixed>}) => {
+  const Hyacinth = navBuilder(ItemsWrapper, null, Ul);
+  return <Hyacinth navItems={props.navItems} />
+});

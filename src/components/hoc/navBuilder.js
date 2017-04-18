@@ -11,18 +11,16 @@ export default function (ParentUl, LiComponent, UlComponent) {
       }
       return <li key={i}>{value}{childUl ? childUl : null}</li>;
     }
-
     getUl(data, i) {
       const ulVal = Object.keys(data);
       const childLiVals = Object.values(data).reduce((a,v) => a.concat(v), []);
       if (UlComponent) {
-        return <UlComponent key={i} label={ulVal} childlis={childLiVals}/>
+        return <UlComponent key={i} label={ulVal} childItems={childLiVals}/>
       }
       const mapChildLis = childLiVals.map((l,n) => this.getLi(l,n))
       const mappedChildLis = <ul>{mapChildLis}</ul>
       return this.getLi(ulVal.toString(), i, mappedChildLis)
     }
-
     mapItems (navItems) {
       return(
         navItems.map((l, i) => {

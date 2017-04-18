@@ -1,12 +1,7 @@
-//@flow
-
 import styled from 'styled-components';
-import { pure } from 'recompose';
 
-export default pure(styled.div`
-  display: flex;
-  flex-flow: column wrap;
+export default styled.div`
+  position: relative;
   width: 80%;
-  align-items: center;
-  align-content: space-between;
-`)
+  margin-bottom: 2.8em;
+`

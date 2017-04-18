@@ -115,8 +115,8 @@ const Li = (props) => {
 }
 
 const Ul = (props) => {
-  const {label, childlis} = props;
-  const bubbleData = bubbleCalculator(childlis);
+  const {label, childItems} = props;
+  const bubbleData = bubbleCalculator(childItems);
   return(
       <DropdownWrapper>
         <UlListItem>

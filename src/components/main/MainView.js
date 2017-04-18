@@ -24,7 +24,7 @@ export default enhancer(styled.div`
     if (props.menuIsActive) {
       return (
         `
-          transform: translateX(80vw);
+          transform: translateX(90vw);
           z-index: 10;
         `
       )
