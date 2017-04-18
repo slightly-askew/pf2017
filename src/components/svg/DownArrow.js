@@ -12,7 +12,7 @@ const DownArrowSvg = styled.svg`
     padding: 0 0 0 0.5em;
     max-height: 3em;
     max-width: 3em;
-    ${baseAdjust(3)}
+    ${baseAdjust(4)}
   `
 
 const Animated = styled.g.attrs({

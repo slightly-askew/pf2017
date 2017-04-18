@@ -9,6 +9,7 @@ import Beam from './Beam'
 
 import mainNav from '../../data/mainNav';
 import leftDrawerLowerNav from '../../data/leftDrawerLowerNav';
+import Home from './home/Home'
 
 
 const enhancer = compose(
@@ -32,6 +33,7 @@ export default enhancer((props) => {
     <MainView menuIsActive={menuIsActive}>
       <Mask menuIsActive={menuIsActive} onClick={toggleMenu}/>
       <Header menuIsActive={menuIsActive} toggleMenu={toggleMenu} navItems={mainNav} />
+      <Home/>
       {/*React.cloneElement({ ...props }.children, { ...props})*/}
       <LeftDrawer menuIsActive={menuIsActive} navItems={mainNav} contactNavItems={leftDrawerLowerNav}/>
       <Beam isActive={props.menuIsActive}/>
