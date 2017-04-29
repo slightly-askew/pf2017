@@ -21,7 +21,7 @@ const Animated = styled.g.attrs({
     transform: scale(1);
     transform-origin: 27.48px 36px;
     will-change: transform;
-    transition: all 0.1s ease-in 0.2s;
+    transition: transform 0.1s ease-in 0.2s;
   `
 
 const Triangle = () => {

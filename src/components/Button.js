@@ -7,9 +7,9 @@ const Button = styled.button`
   font-size: 1em;
   font-family: 'Fira Sans';
   text-align: center;
-  color: white;
+  color: black;
   padding: 1.25em;
-  background-color: black;
+  background-color: white;
 `
 
 export default Button;
