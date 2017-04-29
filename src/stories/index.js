@@ -6,14 +6,20 @@ import { compose, withState, withHandlers } from 'recompose';
 
 import Globals from '../styleGlobal';
 
-import Button from '../components/Button';
+import { Centered } from './story-components';
+import DemoButton from '../components/Button';
 import Welcome from '../components/Welcome';
-import Header from '../components/header/Header';
-import MenuIcon from '../components/header/MenuIcon';
-import IconButton from '../components/header/IconButton';
-import Main from '../components/main/Main';
 
-import DownArrow from '../components/header/DownArrow';
+import Header from '../components/main/header/Header';
+import MenuIcon from '../components/main/header/MenuIcon';
+import IconButton from '../components/main/header/IconButton';
+import Main from '../components/main/Main';
+import mainNav from '../data/mainNav';
+
+import Button from '../components/Buttons/index';
+
+
+import DownArrow from '../components/svg/DownArrow';
 
 Globals();
 
@@ -35,7 +41,7 @@ const IconButtonWithToggle = enhanceWithToggle((props) => {
 
 const HeaderWithToggle = enhanceWithToggle((props) => {
   return(
-    <Header {...props}/>
+    <Header {...props} navItems={mainNav}/>
   )
 })
 
@@ -46,10 +52,10 @@ storiesOf('Welcome', module)
 
 storiesOf('Button', module)
   .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
+    <DemoButton onClick={action('clicked')}>Hello Button</DemoButton>
   ))
   .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+    <DemoButton onClick={action('clicked')}>😀 😎 👍 💯</DemoButton>
   ));
 
 storiesOf('Header', module)
@@ -67,3 +73,11 @@ storiesOf('Sitewide', module)
   .add('main layout', () => (
     <Main />
   ))
+
+const StoryButton = enhanceWithToggle((props) => <Button {...props}/>);
+storiesOf('Buttons', module)
+  .add('default button', () => (
+    <Centered>
+      <StoryButton>Default button</StoryButton>
+    </Centered>
+    ))

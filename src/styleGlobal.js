@@ -25,7 +25,7 @@ export default () => injectGlobal`
     }
   }
   body {
-    padding: o;
+    padding: 0;
     margin: 0;
     background: black;
     transition: background 0.5s
