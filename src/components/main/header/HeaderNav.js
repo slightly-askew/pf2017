@@ -102,7 +102,11 @@ const DropdownWrapper = styled.span`
     }
     & .hasDropdown .animated {
       transform: scale(0.2);
-      transition: transform 0.1s ease-in;
+      transition: transform 0.1s;
+    }
+    & .bubble__text {
+      opacity: 1;
+      transition: opacity 0.2s 0.2s;
     }
   }`
 

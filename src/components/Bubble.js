@@ -115,6 +115,9 @@ const GText = styled.g`
   font-family: 'Fira Mono';
   fill: black;
   letter-spacing: -0.8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  will-change: opacity;
 `
 
 const GItem = styled.g`
@@ -145,7 +148,7 @@ const ListItems = (props) => {
   const makeTextElements = (props) => {
     if(props.children) {
       return (
-        <GText>
+        <GText className="bubble__text">
           {props.children.map((child, i) => {
             return (
               <GItem key={i+1}>

@@ -31,7 +31,7 @@ const Ul = (props) => {
   return(
     <NavLi>
       <ChildUl>
-        <span className='hasDropdown'>{label}<DownArrow /></span>
+        <span className='hasDropdown'>{label}</span>
       </ChildUl>
     </NavLi>
   )
