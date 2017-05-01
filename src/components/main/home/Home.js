@@ -1,8 +1,11 @@
+//@flow
+
 import React from 'react';
 import styled from 'styled-components';
 
 import ShapeFace from '../../svg/ShapeFace';
 import Intro from './Intro';
+import Heading from '../../typing-headline/index';
 
 const HomeDiv = styled.div`
   width: 100%;
@@ -13,7 +16,7 @@ const HomeDiv = styled.div`
 export default function (props) {
   return (
     <HomeDiv>
-      <Intro />
+      <Heading>Here's the finished example of my weird animation typing thing.</Heading>
       <ShapeFace />
     </HomeDiv>
   )

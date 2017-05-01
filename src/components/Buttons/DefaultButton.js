@@ -11,6 +11,7 @@ const Button = styled.button`
   padding: 1.4em;
   background-color: white;
   border-radius: 0.125em;
+  box-shadow: 0em 0.125em 1.4em -0.25em #bbb;
 `
 
 export default Button;

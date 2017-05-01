@@ -16,8 +16,8 @@ const enhancer = compose(
   pure,
   withState('menuIsActive', 'toggleMenu', false),
   withHandlers({
-    toggleMenu: (p) => () => p.toggleMenu(() => !p.menuIsActive),
-    closeMenu: (p) => () => p.toggleMenu(() => false)
+    toggleMenu: ({toggleMenu, menuIsActive}) => () => toggleMenu(() => !menuIsActive),
+    closeMenu: ({toggleMenu}) => () => toggleMenu(() => false)
   })
 );
 
